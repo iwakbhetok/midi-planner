@@ -94,7 +94,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ onBannerClick, onNavigate }) =>
         <section className="bg-white p-4 -mt-4 mx-4 rounded-xl shadow-sm">
             <div className="flex items-center text-xs font-semibold text-blue-800 bg-blue-100 rounded-lg p-3 mb-3">
                 <StoreIcon className="w-5 h-5 mr-3"/>
-                Pengiriman dari <span className="font-bold mx-1">Toko Honoris Modernland</span>
+                Pengiriman dari <span className="font-bold mx-1">Toko Honoris Modernland (1.1 km)</span>
             </div>
             <div>
                 <p className="text-xs text-gray-500 mb-1">Tujuan Pengiriman :</p>

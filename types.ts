@@ -13,6 +13,16 @@ export interface Product {
   imageUrl: string;
 }
 
+export interface ExtractedProduct {
+  productName: string;
+  quantity: number;
+}
+
+export interface ProductWithDetails extends ExtractedProduct {
+  price: number;
+  imageUrl: string;
+}
+
 export interface HouseholdData {
   householdName: string;
   householdAddress: string;
