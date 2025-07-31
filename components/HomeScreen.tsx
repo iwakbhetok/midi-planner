@@ -108,7 +108,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ onBannerClick, onNavigate }) =>
         {/* Promo Banner */}
         <section className="px-4 mt-4">
             <div onClick={onBannerClick} className="relative bg-blue-300 h-40 rounded-xl p-4 flex flex-col justify-center items-center text-center cursor-pointer overflow-hidden">
-                <img src="/assets/images/banner-1.jpg" className="absolute inset-0 w-full h-full object-cover"/>
+                <img src="/assets/images/banner-1.webp" className="absolute inset-0 w-full h-full object-cover"/>
                 {/* <div className="relative z-10">
                     <h2 className="text-white text-4xl font-extrabold" style={{ WebkitTextStroke: '2px #D52B1E', textShadow: '3px 3px 0 #D52B1E' }}>NO DRAMA LUPA KEBELI!</h2>
                     <p className="text-white font-semibold mt-2 bg-black bg-opacity-30 px-2 py-1 rounded-md">"Custom Daftar Belanjaan Kamu, Biar Nanti Diingetin Kalo Udah Mau Abis!"</p>
