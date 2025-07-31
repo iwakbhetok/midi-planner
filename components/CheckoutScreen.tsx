@@ -28,6 +28,7 @@ const CheckoutScreen: React.FC<CheckoutScreenProps> = ({ submissionId }) => {
         const fetchProducts = async () => {
             setLoading(true);
             setError(null);
+            console.log(`Fetching products for submission ID: ${submissionId}`);
 
             const { data, error: dbError } = await supabase
                 .from('products')

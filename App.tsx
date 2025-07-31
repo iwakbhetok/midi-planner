@@ -24,9 +24,15 @@ const App: React.FC = () => {
   useEffect(() => {
     const path = window.location.pathname;
     const pathParts = path.split('/').filter(Boolean);
-    // Basic check for a UUID-like ID
-    if (pathParts.length === 1 && pathParts[0].length > 20) { 
-        setSubmissionIdFromPath(pathParts[0]);
+    
+    // More robust check for a UUID-like ID
+    const potentialId = pathParts.find(part => part.length > 20 && /[a-f0-9-]+/.test(part));
+
+    if (potentialId) {
+      console.log('Found submission ID in path:', potentialId);
+      setSubmissionIdFromPath(potentialId);
+    } else {
+      console.log('No submission ID found in path:', window.location.pathname);
     }
   }, []);
 
