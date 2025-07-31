@@ -90,8 +90,8 @@ export type Database = {
 // This is done to prevent the application from crashing on startup if environment
 // variables are not configured. The app will run, but saving settings will fail
 // gracefully until these are replaced with your actual Supabase Project URL and Public Anon Key.
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey =  import.meta.env.VITE_SUPABASE_ANON_KEY ;
+const supabaseUrl = 'https://ksfrcopxhypjkoigtgru.supabase.co'; //import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey =  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtzZnJjb3B4aHlwamtvaWd0Z3J1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM5NTk2NzcsImV4cCI6MjA2OTUzNTY3N30.iB2cVz10C_budQ3pF-VlQcPG6Dm9awYFIXz8scs50Pw'; //import.meta.env.VITE_SUPABASE_ANON_KEY ;
 
 
 // Initialize the Supabase client with the placeholder credentials.
