@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback, useEffect } from 'react';
 import WelcomeScreen from './components/WelcomeScreen';
 import SetupScreen from './components/SetupScreen';
@@ -10,6 +9,7 @@ import SuccessScreen from './components/SuccessScreen';
 import CheckoutScreen from './components/CheckoutScreen';
 import { type HouseholdData, type ExtractedProduct } from './types';
 import { initialHouseholdData } from './constants';
+import { requestNotificationPermission } from './push';
 
 type Screen = 'home' | 'welcome' | 'setup' | 'review' | 'notificationSettings' | 'success' | 'settings' | 'belanja' | 'transaksi' | 'promo' | 'account';
 
@@ -21,11 +21,24 @@ const App: React.FC = () => {
   const [phoneNumber, setPhoneNumber] = useState<string>('');
   const [submissionIdFromPath, setSubmissionIdFromPath] = useState<string | null>(null);
 
+  // ✅ Register Firebase Service Worker
+  useEffect(() => {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('/firebase-messaging-sw.js')
+        .then((registration) => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch((error) => {
+          console.error('Service Worker registration failed:', error);
+        });
+    }
+    requestNotificationPermission();
+  }, []);
+
   useEffect(() => {
     const path = window.location.pathname;
     const pathParts = path.split('/').filter(Boolean);
-    
-    // More robust check for a UUID-like ID
     const potentialId = pathParts.find(part => part.length > 20 && /[a-f0-9-]+/.test(part));
 
     if (potentialId) {
@@ -35,7 +48,6 @@ const App: React.FC = () => {
       console.log('No submission ID found in path:', window.location.pathname);
     }
   }, []);
-
 
   const handleSetupComplete = useCallback((data: HouseholdData, extractedProducts: ExtractedProduct[]) => {
     setHouseholdData(data);
@@ -79,7 +91,7 @@ const App: React.FC = () => {
         return <CheckoutScreen submissionId={submissionIdFromPath} />;
     }
     return renderScreen();
-  }
+  };
 
   return (
     <div className="bg-gray-200 min-h-screen flex justify-center items-start">
