@@ -228,7 +228,7 @@ const NotificationSettingsScreen: React.FC<NotificationSettingsScreenProps> = ({
                             id="phone-number"
                             value={phoneNumber}
                             onChange={e => setPhoneNumber(e.target.value)}
-                            placeholder="+62 812 3456 7890"
+                            placeholder="081234567890"
                             className="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#D52B1E] text-gray-800"
                             aria-describedby="phone-number-description"
                          />
